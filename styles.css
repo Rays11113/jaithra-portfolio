@@ -44,3 +44,37 @@ body{overflow-x:clip}.hero{overflow:visible}.hero-grid{position:relative;grid-te
 @media(max-width:800px){.heart-stage{inset:auto;width:min(80vw,440px);margin:0 auto 30px}.section-biology .organelle{width:70px;height:70px}.section-biology .medical-star:nth-child(2n){display:none}}
 @media(max-width:540px){.heart-stage{width:82vw;margin:0 auto 20px}}
 @media(prefers-reduced-motion:reduce){.heart-stage{animation:none!important;transform:none;opacity:1}}
+
+
+/* Full-bleed footer + clearer section icons */
+.footer{
+  position:relative;
+  background:#060606;
+  box-shadow:0 0 0 100vmax #060606;
+  clip-path:inset(0 -100vmax);
+}
+.local-biology-section>.shell{position:relative;z-index:3}
+.section-biology{z-index:1}
+.section-medical-icon{
+  position:absolute;
+  width:var(--size);
+  height:var(--size);
+  object-fit:contain;
+  opacity:var(--alpha);
+  filter:drop-shadow(0 0 8px rgba(120,170,255,.28));
+  animation:clinical-twinkle var(--duration) ease-in-out infinite alternate;
+  animation-delay:var(--delay);
+}
+.light-section .section-medical-icon{
+  opacity:calc(var(--alpha) * 1.15);
+  filter:drop-shadow(0 0 6px rgba(58,94,145,.18));
+}
+@media(max-width:800px){
+  .section-medical-icon{opacity:calc(var(--alpha) * .78)}
+}
+@media(max-width:540px){
+  .section-medical-icon:nth-child(3n){display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .section-medical-icon{animation:none!important}
+}

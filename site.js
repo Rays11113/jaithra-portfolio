@@ -144,25 +144,35 @@ resizeScene(); syncMotion();
 
 // Each section owns its decorations: they scroll with it and cannot cross its edges.
 const isAboutPage = document.body.classList.contains('about-page');
+const assetBase = isAboutPage ? '../assets/' : './assets/';
+const homeIconFiles = ['microscope.svg','flask-conical.svg','heart-pulse.svg','syringe.svg'];
+const aboutIconFiles = ['stethoscope.svg','test-tubes.svg','heart-pulse.svg','syringe.svg'];
+const iconFiles = isAboutPage ? aboutIconFiles : homeIconFiles;
 const organelleTypes = isAboutPage ? [2,3] : [0,1];
-const iconTypes = isAboutPage ? [1,3] : [0,2];
+
 document.querySelectorAll('main > section').forEach((section, sectionIndex) => {
   section.classList.add('local-biology-section');
   const field = document.createElement('div');
   field.className = 'section-biology';
   field.setAttribute('aria-hidden', 'true');
+
   for (let i=0;i<12;i++) {
-    const icon = document.createElement('span');
-    icon.className = 'medical-star sprite-' + iconTypes[i%2];
-    icon.style.cssText = `left:${(i*31.7+5+sectionIndex*7)%94}%;top:${8+(i*23.3+sectionIndex*11)%78}%;--size:${24+i%3*5}px;--alpha:.18;--duration:${10+i%5*2}s;--delay:-${i*1.3}s`;
+    const icon = document.createElement('img');
+    icon.className = 'section-medical-icon';
+    icon.src = assetBase + iconFiles[(i + sectionIndex) % iconFiles.length];
+    icon.alt = '';
+    icon.decoding = 'async';
+    icon.style.cssText = `left:${(i*31.7+5+sectionIndex*7)%94}%;top:${8+(i*23.3+sectionIndex*11)%78}%;--size:${24+i%3*6}px;--alpha:${0.30 + (i%3)*0.07};--duration:${10+i%5*2}s;--delay:-${i*1.3}s`;
     field.append(icon);
   }
+
   [[2,22,88],[89,67,100]].forEach(([x,y,size],i)=>{
     const organelle = document.createElement('span');
     organelle.className = 'organelle sprite-' + organelleTypes[(i+sectionIndex)%2];
     organelle.style.cssText = `left:${x}%;top:${y}%;--size:${size}px;--duration:${26+i*7}s;--delay:-${sectionIndex*4+i*6}s`;
     field.append(organelle);
   });
+
   section.append(field);
 });
 // Silent looping motion portraits; honour visibility, explicit pause and reduced motion.

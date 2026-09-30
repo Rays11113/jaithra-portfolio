@@ -78,3 +78,52 @@ body{overflow-x:clip}.hero{overflow:visible}.hero-grid{position:relative;grid-te
 @media(prefers-reduced-motion:reduce){
   .section-medical-icon{animation:none!important}
 }
+
+
+/* Experience grouping */
+.experience-group{margin-top:34px}
+.experience-group+.experience-group{margin-top:78px}
+.experience-group-heading{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);
+  gap:40px;
+  align-items:end;
+  padding:25px 28px;
+  border:1px solid #cbd6e3;
+  border-left:4px solid #396cd7;
+  background:linear-gradient(135deg,#f8fbff,#edf3f9);
+}
+.experience-group-heading h3{
+  margin:6px 0 0;
+  color:#172c48;
+  font-size:1.65rem;
+  font-weight:600;
+  letter-spacing:-.035em;
+}
+.experience-group-heading>p{
+  margin:0;
+  color:#566678;
+  line-height:1.7;
+  font-size:.94rem;
+}
+.experience-group .role-list{border-top:0}
+.experience-subgroup-label{
+  margin:34px 0 14px;
+  color:#46638b;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.pharmacy-experience-group .experience-group-heading{
+  border-left-color:#74859c;
+  background:linear-gradient(135deg,#f8f8f6,#eef0f2);
+}
+@media(max-width:800px){
+  .experience-group-heading{grid-template-columns:1fr;gap:12px}
+  .experience-group+.experience-group{margin-top:55px}
+}
+@media(max-width:540px){
+  .experience-group-heading{padding:21px 20px}
+  .experience-group-heading h3{font-size:1.4rem}
+}

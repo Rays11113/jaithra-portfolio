@@ -127,3 +127,50 @@ body{overflow-x:clip}.hero{overflow:visible}.hero-grid{position:relative;grid-te
   .experience-group-heading{padding:21px 20px}
   .experience-group-heading h3{font-size:1.4rem}
 }
+
+
+/* School experience links and athletics */
+.experience-links{margin-top:17px}
+.experience-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 11px;
+  border:1px solid #aebed0;
+  border-radius:999px;
+  color:#325b91;
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.experience-links a:hover{background:#edf4fc;color:#183f73}
+.activity-card{position:relative}
+.activity-mark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:58px;
+  height:58px;
+  margin:10px 0 6px;
+  border:1px solid #aab9ca;
+  border-radius:50%;
+  color:#31577f;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  letter-spacing:.08em;
+  background:#f4f8fc;
+}
+.activity-interest{
+  color:#344c67!important;
+  font-weight:500;
+  line-height:1.75!important;
+  margin-bottom:16px!important;
+}
+.activity-points{
+  margin:0;
+  padding-left:19px;
+  color:#555f6d;
+  font-size:.91rem;
+  line-height:1.75;
+}
+.activity-points li+li{margin-top:9px}

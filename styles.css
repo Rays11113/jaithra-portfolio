@@ -303,3 +303,103 @@ body{overflow-x:clip}.hero{overflow:visible}.hero-grid{position:relative;grid-te
     z-index:7;
   }
 }
+
+
+/* Final mobile readability polish */
+@media(max-width:600px){
+  .shell{width:calc(100% - 32px)}
+
+  .hero{
+    background:linear-gradient(180deg,#07101f 0%,#091a35 64%,#0b2045 100%);
+  }
+
+  .hero-grid{
+    min-height:auto!important;
+    gap:0;
+  }
+
+  .hero .hero-copy{
+    padding:34px 0 10px!important;
+    background:linear-gradient(180deg,rgba(6,11,24,.98),rgba(6,11,24,.94) 82%,rgba(6,11,24,0));
+  }
+
+  .hero h1{
+    font-size:clamp(1.95rem,8.2vw,2.45rem)!important;
+    line-height:1.1!important;
+    margin:12px 0 18px!important;
+    text-wrap:balance;
+  }
+
+  .hero .intro{
+    font-size:.94rem!important;
+    line-height:1.58!important;
+    margin-bottom:20px!important;
+    color:#e1e7f2!important;
+    max-width:34rem;
+  }
+
+  .hero .actions{
+    gap:12px!important;
+    padding-bottom:8px;
+  }
+
+  .hero .button{
+    min-height:43px!important;
+    padding:0 17px!important;
+  }
+
+  .hero .hero-image.circular-dna{
+    width:min(112vw,500px)!important;
+    height:min(112vw,500px)!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    margin:0 auto -8vw!important;
+    opacity:.88!important;
+  }
+
+  .hero .hero-image.circular-dna img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+  }
+
+  .hero:before{
+    background:linear-gradient(
+      180deg,
+      rgba(6,11,24,.98) 0%,
+      rgba(6,11,24,.96) 42%,
+      rgba(6,11,24,.62) 61%,
+      rgba(6,11,24,.18) 78%,
+      transparent 100%
+    )!important;
+  }
+
+  .hero .hero-bottom{
+    padding:12px 0 17px!important;
+  }
+
+  .identity-strip .shell{
+    padding:18px 0!important;
+    gap:9px 18px!important;
+  }
+
+  .section{
+    padding:58px 0!important;
+  }
+
+  .education-expand summary{
+    min-height:0!important;
+  }
+
+  .service-story{
+    padding:22px!important;
+  }
+
+  .memberships article{
+    padding:22px!important;
+  }
+
+  .footer{
+    align-items:flex-start!important;
+  }
+}

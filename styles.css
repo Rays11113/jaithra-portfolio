@@ -403,3 +403,82 @@ body{overflow-x:clip}.hero{overflow:visible}.hero-grid{position:relative;grid-te
     align-items:flex-start!important;
   }
 }
+
+
+/* Final heart intro sequence: cover viewport, zoom into place, then beat. */
+.heart-stage{
+  transform-origin:50% 50%;
+  animation:
+    heart-cover-zoom 2.4s cubic-bezier(.16,1,.3,1) both,
+    heart-gentle-float 9s 2.4s ease-in-out infinite alternate!important;
+}
+.heart-stethoscope{
+  transform-origin:50% 55%;
+  animation:heart-pulse-final 1.35s 2.4s ease-in-out infinite!important;
+}
+
+@keyframes heart-cover-zoom{
+  0%{
+    transform:scale(5.2);
+    opacity:1;
+  }
+  14%{
+    transform:scale(5.2);
+    opacity:1;
+  }
+  100%{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@keyframes heart-gentle-float{
+  from{transform:translateY(-3px)}
+  to{transform:translateY(7px)}
+}
+
+@keyframes heart-pulse-final{
+  0%,42%,100%{
+    transform:scale(1);
+    filter:drop-shadow(0 0 22px #7cadff80) drop-shadow(0 0 55px #367dff55);
+  }
+  12%{
+    transform:scale(1.045);
+    filter:drop-shadow(0 0 28px #dcf0ff99) drop-shadow(0 0 64px #438aff70);
+  }
+  24%{transform:scale(1.008)}
+  32%{transform:scale(1.027)}
+}
+
+@media(max-width:800px){
+  .heart-stage{
+    animation:
+      heart-cover-zoom-mobile 2.25s cubic-bezier(.16,1,.3,1) both,
+      heart-gentle-float 9s 2.25s ease-in-out infinite alternate!important;
+  }
+  .heart-stethoscope{
+    animation:heart-pulse-final 1.35s 2.25s ease-in-out infinite!important;
+  }
+}
+
+@keyframes heart-cover-zoom-mobile{
+  0%{
+    transform:scale(4.4);
+    opacity:1;
+  }
+  14%{
+    transform:scale(4.4);
+    opacity:1;
+  }
+  100%{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .heart-stage,.heart-stethoscope{
+    animation:none!important;
+    transform:none!important;
+  }
+}
